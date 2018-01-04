@@ -15,6 +15,7 @@ exp points
 ..* abelities unlock
 ..*high score
 ..*new level (C)
+vallen opstaan.
 
 ## sem 
 thema unknow planet (verderuitwerken)
