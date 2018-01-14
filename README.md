@@ -14,9 +14,10 @@
  	* skins unlock
 	* abelities unlock
  * ~~score~~
-	*high score
-	*new level (C)
-	vallen opstaan.
+ * high score
+ * new level (C)
+ * ~~vallen~~
+ * opstaan(play again).
 
 ## sem 
  - thema unknow planet (verderuitwerken)
