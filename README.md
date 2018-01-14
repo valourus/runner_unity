@@ -5,14 +5,15 @@
 #features
 ## koen
  - oneindig rennen
- - link en rachts bewegen
+ - ~~link en rachts bewegen~~
  - abelities (power)
-   *slomo
+   *~~slomo~~
    *jump
  - steets sneller bewegen
  - exp points
  	* skins unlock
 	* abelities unlock
+ * ~~score~~
 	*high score
 	*new level (C)
 	vallen opstaan.
