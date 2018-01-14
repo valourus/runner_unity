@@ -7,8 +7,8 @@
  - oneindig rennen
  - ~~link en rachts bewegen~~
  - abelities (power)
-   *~~slomo~~
-   *jump
+    - ~~slomo~~
+    - *jump
  - steets sneller bewegen
  - exp points
  	* skins unlock
