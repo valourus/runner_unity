@@ -32,7 +32,8 @@ namespace Sources.Logic {
                 context.game.speed.value * 10 * Time.deltaTime);
             
             foreach(var obstacle in obstacles) 
-                obstacle.view.value.transform.Translate(Vector3.left * Time.deltaTime * 10 * context.game.speed.value);
+                if(obstacle.view.value !=  null)
+                    obstacle.view.value.transform.Translate(Vector3.left * Time.deltaTime * 10 * context.game.speed.value);
         }
     }
 }

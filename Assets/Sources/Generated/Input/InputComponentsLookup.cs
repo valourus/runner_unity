@@ -8,20 +8,32 @@
 //------------------------------------------------------------------------------
 public static class InputComponentsLookup {
 
-    public const int Collision = 0;
-    public const int SwipDown = 1;
-    public const int Tick = 2;
+    public const int GenerateObstacle = 0;
+    public const int ObstacleCollision = 1;
+    public const int OnStartClick = 2;
+    public const int PlayerCollision = 3;
+    public const int RestartGame = 4;
+    public const int SwipDown = 5;
+    public const int Tick = 6;
 
-    public const int TotalComponents = 3;
+    public const int TotalComponents = 7;
 
     public static readonly string[] componentNames = {
-        "Collision",
+        "GenerateObstacle",
+        "ObstacleCollision",
+        "OnStartClick",
+        "PlayerCollision",
+        "RestartGame",
         "SwipDown",
         "Tick"
     };
 
     public static readonly System.Type[] componentTypes = {
-        typeof(Sources.Components.CollisionComponent),
+        typeof(Sources.Components.GenerateObstacleComponent),
+        typeof(Sources.Components.ObstacleCollisionComponent),
+        typeof(Sources.Components.OnStartClickComponent),
+        typeof(Sources.Components.PlayerCollisionComponent),
+        typeof(Sources.Components.RestartGameComponent),
         typeof(Sources.Components.SwipDownComponent),
         typeof(Sources.Components.TickComponent)
     };

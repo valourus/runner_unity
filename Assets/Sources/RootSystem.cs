@@ -10,32 +10,41 @@ namespace Sources {
         private Systems systems { get; set; }
         
         private void Awake() {
-            Screen.orientation = ScreenOrientation.Portrait;
             cfg = GetComponent<Config>();
+            cfg.init();
             context = Contexts.sharedInstance;
             systems = createSystems(context);
             systems.Initialize();
         }
 
         private void Update() {
-            systems.Execute();    
+            systems.Execute(); 
+            systems.Cleanup();
         }
-        
+
+        private void OnDestroy() {
+            Debug.Log("destrooyyyy");
+            systems.TearDown();
+        }
         private Systems createSystems(Contexts context) {
             return new Systems().Add(new Feature("GAME_FEATURES")                
                 .Add(new TickSystem(context))
-                .Add(new InitObstacleSystem(context))
+                .Add(new GenerateObstacleSystem(context))
                 .Add(new InitPlayerSystem(context))
                 .Add(new UpdateUILayerSystem(context))
                 .Add(new MoveLeftSystem(context))
                 .Add(new MoveRightSystem(context))
                 .Add(new OnPlayerCollisionSystem(context))
-                .Add(new OnObstacleCollisionSystem(context.input))
                 .Add(new UpdateScoreSystem(context))
                 .Add(new UpdateAnimation(context))
                 .Add(new MoveForwardSystem(context))
                 .Add(new CooldownSystem(context))
-                .Add(new OnSwipeDown(context)));
+                .Add(new OnSwipeDown(context))
+                .Add(new StartGameSystem(context))
+                .Add(new RestartGameSystem(context))
+                .Add(new OnObstacleCollisionSystem(context.input))
+                .Add(new DestroyObstacleSystem(context))
+                .Add(new SaveProgressSystem(context.game)));
         }
     }
 }

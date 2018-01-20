@@ -12,7 +12,8 @@ namespace Sources.Utils {
     public sealed class VUtils {
         private static readonly string path = Application.persistentDataPath + "/PlayerData.txt";
         private static VUtils instance;
-
+        
+        
         private VUtils() {
             if(!File.Exists(path)) {
                 FileStream file = File.Open(path, FileMode.OpenOrCreate);
@@ -24,6 +25,15 @@ namespace Sources.Utils {
             }
         }
 
+        public void save(int lvl, int xp, int highscore) {
+            FileStream file = File.Open(path, FileMode.OpenOrCreate);
+            StreamWriter writer = new StreamWriter(file);
+            writer.Write(lvl + ";" + xp + ";" + highscore);
+            writer.Flush();
+            writer.Close();
+            file.Close();
+        }
+        
         public static VUtils getInstance() {
             if(instance == null) {
                 instance = new VUtils();

@@ -26,8 +26,8 @@ namespace Sources.Logic {
 
         protected override void Execute(List<InputEntity> entities) {
             foreach(var obstacle in obstacles)
-                obstacle.view.value.transform.Translate(
-                    Vector3.forward * Time.deltaTime * context.game.speed.value * 10);
+                if(obstacle.view.value != null)
+                    obstacle.view.value.transform.Translate(Vector3.forward * Time.deltaTime * context.game.speed.value * 10);
 
             //if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
             if(!Input.GetMouseButton(0))

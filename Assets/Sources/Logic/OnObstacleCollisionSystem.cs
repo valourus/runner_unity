@@ -11,21 +11,19 @@ namespace Sources.Logic {
 		public OnObstacleCollisionSystem(ICollector<InputEntity> collector) : base(collector) { }
 		
 		protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context) {
-			return context.CreateCollector(InputMatcher.Collision);
+			return context.CreateCollector(InputMatcher.ObstacleCollision.Added());
 		}
 
 		protected override bool Filter(InputEntity entity) {
-			return entity.hasCollision &&
-			       entity.collision.self.CompareTag("Obstacle") &&
-			       entity.collision.other.CompareTag("Obstacle");
+			return entity.hasObstacleCollision;
 		}
 
 		protected override void Execute(List<InputEntity> entities) {
 			foreach(var entity in entities) {
-				Debug.Log("Deleted: " + entity.collision.other.name);
-				entity.collision.other.GetEntityLink().entity.Destroy();
-				entity.collision.other.DestroyGameObject();
-				entity.collision.other.Unlink();
+				if(entity.obstacleCollision.other != null) {
+					Debug.Log("Deleted obstacle");
+					entity.obstacleCollision.other.DestroyGameObject();
+				}
 				entity.Destroy();
 			}
 		}

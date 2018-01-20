@@ -13,6 +13,7 @@ namespace Sources.Logic {
             entities = game.GetGroup(GameMatcher.SlowMotionCoolDown);
         }
         public CooldownSystem(ICollector<InputEntity> collector) : base(collector) { }
+        
         protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context) {
             return context.CreateCollector(InputMatcher.AllOf(InputMatcher.Tick));
         }
