@@ -14,9 +14,10 @@ public static class InputComponentsLookup {
     public const int PlayerCollision = 3;
     public const int RestartGame = 4;
     public const int SwipDown = 5;
-    public const int Tick = 6;
+    public const int SwipeUp = 6;
+    public const int Tick = 7;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 8;
 
     public static readonly string[] componentNames = {
         "GenerateObstacle",
@@ -25,6 +26,7 @@ public static class InputComponentsLookup {
         "PlayerCollision",
         "RestartGame",
         "SwipDown",
+        "SwipeUp",
         "Tick"
     };
 
@@ -35,6 +37,7 @@ public static class InputComponentsLookup {
         typeof(Sources.Components.PlayerCollisionComponent),
         typeof(Sources.Components.RestartGameComponent),
         typeof(Sources.Components.SwipDownComponent),
+        typeof(Sources.Components.SwipeUpComponent),
         typeof(Sources.Components.TickComponent)
     };
 }

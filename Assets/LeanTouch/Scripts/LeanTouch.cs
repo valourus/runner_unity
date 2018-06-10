@@ -159,7 +159,7 @@ namespace Lean.Touch
 			{
 				for (var i = 0; i < highestMouseButton; i++)
 				{
-					if (UnityEngine.Input.GetMouseButton(i) == true)
+					if (Input.GetMouseButton(i) == true)
 					{
 						return true;
 					}
@@ -377,7 +377,7 @@ namespace Lean.Touch
 		protected virtual void OnGUI()
 		{
 			// Show simulated multi fingers?
-			if (FingerTexture != null && UnityEngine.Input.touchCount == 0 && Fingers.Count > 1)
+			if (FingerTexture != null && Input.touchCount == 0 && Fingers.Count > 1)
 			{
 				for (var i = Fingers.Count - 1; i >= 0; i--)
 				{
@@ -477,11 +477,11 @@ namespace Lean.Touch
 		private void PollFingers()
 		{
 			// Update real fingers
-			if (UnityEngine.Input.touchCount > 0)
+			if (Input.touchCount > 0)
 			{
-				for (var i = 0; i < UnityEngine.Input.touchCount; i++)
+				for (var i = 0; i < Input.touchCount; i++)
 				{
-					var touch = UnityEngine.Input.GetTouch(i);
+					var touch = Input.GetTouch(i);
 
 					// Only poll fingers that are active?
 					if (touch.phase == TouchPhase.Began || touch.phase == TouchPhase.Stationary || touch.phase == TouchPhase.Moved)
@@ -494,7 +494,7 @@ namespace Lean.Touch
 			else if (AnyMouseButtonSet == true)
 			{
 				var screen        = new Rect(0, 0, Screen.width, Screen.height);
-				var mousePosition = (Vector2)UnityEngine.Input.mousePosition;
+				var mousePosition = (Vector2)Input.mousePosition;
 
 				// Is the mouse within the screen?
 				if (screen.Contains(mousePosition) == true)
@@ -504,14 +504,14 @@ namespace Lean.Touch
 					// Simulate pinch & twist?
 					if (SimulateMultiFingers == true)
 					{
-						if (UnityEngine.Input.GetKey(PinchTwistKey) == true)
+						if (Input.GetKey(PinchTwistKey) == true)
 						{
 							var center = new Vector2(Screen.width * 0.5f, Screen.height * 0.5f);
 
 							AddFinger(1, center - (mousePosition - center));
 						}
 						// Simulate multi drag?
-						else if (UnityEngine.Input.GetKey(MultiDragKey) == true)
+						else if (Input.GetKey(MultiDragKey) == true)
 						{
 							AddFinger(1, mousePosition);
 						}

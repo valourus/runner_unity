@@ -26,6 +26,7 @@ namespace Sources.Logic {
             game.score.currScore = 0;
             game.speed.value = 1;
 
+            RootSystem.cfg.mainmenu.GetComponent<CanvasGroup>().blocksRaycasts = false;
             RootSystem.cfg.mainmenu.AddComponent<FadeOut>();
             RootSystem.cfg.gamemenu.AddComponent<FadeIn>();  
             entities[0].Destroy();

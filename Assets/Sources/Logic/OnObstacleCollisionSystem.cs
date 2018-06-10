@@ -2,12 +2,16 @@
 using Entitas;
 using Entitas.Unity;
 using Entitas.VisualDebugging.Unity;
+using Sources.Utils;
 using UnityEngine;
 
 namespace Sources.Logic {
 	public class OnObstacleCollisionSystem : ReactiveSystem<InputEntity> {
-		
-		public OnObstacleCollisionSystem(IContext<InputEntity> context) : base(context) { }
+		private InputContext input { get; set; }
+
+		public OnObstacleCollisionSystem(Contexts context) : base(context.input) {
+			input = context.input;
+		}
 		public OnObstacleCollisionSystem(ICollector<InputEntity> collector) : base(collector) { }
 		
 		protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context) {
@@ -21,7 +25,6 @@ namespace Sources.Logic {
 		protected override void Execute(List<InputEntity> entities) {
 			foreach(var entity in entities) {
 				if(entity.obstacleCollision.other != null) {
-					Debug.Log("Deleted obstacle");
 					entity.obstacleCollision.other.DestroyGameObject();
 				}
 				entity.Destroy();

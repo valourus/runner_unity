@@ -16,8 +16,8 @@ namespace Sources.Logic {
 		}
 
 		public void Execute() {
-			anim.SetFloat(speedHash, game.speed.value);
-			anim.speed = game.speed.value;
+			if(game.speed.value < 2.99f)
+				anim.SetFloat(speedHash, game.speed.value);
 		}
 		
 	}

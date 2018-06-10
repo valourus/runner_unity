@@ -28,13 +28,13 @@ namespace Sources.Logic {
             foreach(var obstacle in obstacles)
                 if(obstacle.view.value != null)
                     obstacle.view.value.transform.Translate(Vector3.forward * Time.deltaTime * context.game.speed.value * 10);
-
-            //if(!Input.GetKey(KeyCode.A) && !Input.GetKey(KeyCode.D))
-            if(!Input.GetMouseButton(0))
+            
+            if(!Input.GetMouseButton(0) || Input.mousePosition.x < Screen.width - Screen.width*0.1 || Input.mousePosition.x > Screen.width / 10) {
                 player.transform.rotation = Quaternion.Lerp(
                     player.transform.rotation,
                     Quaternion.AngleAxis(180, Vector3.up),
-                    context.game.speed.value * 10 * Time.deltaTime);
+                    10 * Time.deltaTime);
+            }    
         }
     }
 }

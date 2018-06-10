@@ -1,32 +1,35 @@
 ﻿using System.Collections.Generic;
 using Entitas;
+using Entitas.VisualDebugging.Unity;
 using UnityEngine;
 using UnityEngine.Assertions.Must;
 
 namespace Sources.Logic {
-    public class DestroyObstacleSystem : ReactiveSystem<InputEntity> {
-        private GameContext game;
-        private IGroup<GameEntity> obstacles;
+    public class DestroyObstacleSystem : IInitializeSystem, IExecuteSystem {
+        private GameContext game { get; set; }
+        private IGroup<GameEntity> obstacles { get; set; }
+        private GameObject obstaclesGO { get; set; }
 
-        public DestroyObstacleSystem(Contexts context) : base(context.input) {
+        public DestroyObstacleSystem(Contexts context) {
             game = context.game;
+        }
+        
+        public void Initialize() {
             obstacles = game.GetGroup(GameMatcher.Obstacle);
+            obstaclesGO = RootSystem.cfg.obstacles;
         }
 
-        public DestroyObstacleSystem(ICollector<InputEntity> collector) : base(collector) { }
-
-        protected override ICollector<InputEntity> GetTrigger(IContext<InputEntity> context) {
-            return context.CreateCollector(InputMatcher.Tick);
-        }
-
-        protected override bool Filter(InputEntity entity) {
-            return true;
-        }
-
-        protected override void Execute(List<InputEntity> entities) {
+        public void Execute() {
             for(int i = obstacles.count - 1; i >= 0; i--) {
                 if(obstacles.GetEntities()[i].view.value == null) {
                     obstacles.GetEntities()[i].Destroy();
+                }
+            }
+
+            for(int i = 0; i < obstaclesGO.transform.childCount; i++) {
+                Transform go = obstaclesGO.transform.GetChild(i);
+                if(go.childCount < 1) {
+                    go.gameObject.DestroyGameObject();
                 }
             }
         }

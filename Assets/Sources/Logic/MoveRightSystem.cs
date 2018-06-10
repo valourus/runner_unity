@@ -27,11 +27,11 @@ namespace Sources.Logic {
 
         protected override void Execute(List<InputEntity> entities) {
             //if(!Input.GetKey(KeyCode.D)) return;
-            if(Input.GetMouseButton(0) && Input.mousePosition.x < Screen.width / 2) return;
+            if(!Input.GetMouseButton(0) || Input.mousePosition.x < Screen.width - Screen.width*0.2) return;
             player.transform.rotation = Quaternion.Lerp(
                 player.transform.rotation,
                 Quaternion.AngleAxis(210, Vector3.up),
-                context.game.speed.value * 10 * Time.deltaTime);
+                18 * Time.deltaTime);
 
             foreach(var obstacle in obstacles)
                 if(obstacle.view.value !=  null)

@@ -5,6 +5,6 @@ using UnityEngine;
 
 public class AnimEventsEntry : MonoBehaviour {
     public void onAnimationFinished() {
-        Contexts.sharedInstance.input.CreateEntity().AddRestartGame(RestartFase.FASE2);
+        Contexts.sharedInstance.input.CreateEntity().AddRestartGame(RestartFase.FASE2); 
     }
 }

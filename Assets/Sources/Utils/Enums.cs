@@ -1,6 +1,6 @@
 ﻿namespace Sources.Utils {
     public enum GeneratePlace {
-        UPFRONT, LEFT, RIGHT
+        UPFRONT, LEFT, RIGHT, BEHIND
     }
 
     public enum RestartFase {

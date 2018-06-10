@@ -6,15 +6,18 @@ namespace Sources.Utils {
     public class TouchInput : MonoBehaviour {
         
         public void onSwipeUp(LeanFinger finger) {
-            Debug.Log("swipe up");
+            if(!RootSystem.cfg.isPaused)
+                Contexts.sharedInstance.input.CreateEntity().isSwipeUp = true;
         }
 
         public void onSwipeDown(LeanFinger finger) {
-            Contexts.sharedInstance.input.CreateEntity().isSwipDown = true;
+            Debug.Log("swipe down");
+            if(!RootSystem.cfg.isPaused)
+                Contexts.sharedInstance.input.CreateEntity().isSwipDown = true;
         }
         
         public void onDoubleTap(LeanFinger finger) {
-            if(RootSystem.cfg.isPaused)
+            if(RootSystem.cfg.isPaused && Contexts.sharedInstance.game.isDead)
                 Contexts.sharedInstance.input.CreateEntity().AddRestartGame(RestartFase.FASE1);
         }
     }

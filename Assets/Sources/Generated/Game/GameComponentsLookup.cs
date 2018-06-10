@@ -10,18 +10,24 @@ public static class GameComponentsLookup {
 
     public const int Dead = 0;
     public const int Experience = 1;
-    public const int Obstacle = 2;
-    public const int Score = 3;
-    public const int SlowMotionCoolDown = 4;
-    public const int Speed = 5;
-    public const int View = 6;
+    public const int JumpCoolDown = 2;
+    public const int Jumping = 3;
+    public const int Obstacle = 4;
+    public const int Restartable = 5;
+    public const int Score = 6;
+    public const int SlowMotionCoolDown = 7;
+    public const int Speed = 8;
+    public const int View = 9;
 
-    public const int TotalComponents = 7;
+    public const int TotalComponents = 10;
 
     public static readonly string[] componentNames = {
         "Dead",
         "Experience",
+        "JumpCoolDown",
+        "Jumping",
         "Obstacle",
+        "Restartable",
         "Score",
         "SlowMotionCoolDown",
         "Speed",
@@ -31,7 +37,10 @@ public static class GameComponentsLookup {
     public static readonly System.Type[] componentTypes = {
         typeof(Sources.Components.DeadComponent),
         typeof(Sources.Components.ExperienceComponent),
+        typeof(Sources.Components.JumpCoolDownComponent),
+        typeof(Sources.Components.JumpingComponent),
         typeof(Sources.Components.ObstacleComponent),
+        typeof(Sources.Components.RestartableComponent),
         typeof(Sources.Components.ScoreComponent),
         typeof(Sources.Components.SlowMotionCoolDownComponent),
         typeof(Sources.Components.SpeedComponent),

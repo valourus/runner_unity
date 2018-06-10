@@ -18,7 +18,7 @@ namespace Sources.Utils {
             if(!File.Exists(path)) {
                 FileStream file = File.Open(path, FileMode.OpenOrCreate);
                 StreamWriter writer = new StreamWriter(file);
-                writer.Write("0;0");
+                writer.Write("0;0;0");
                 writer.Flush();
                 writer.Close();
                 file.Close();
@@ -50,7 +50,7 @@ namespace Sources.Utils {
         }
 
         public int getHighscore() {
-            return 30;
+            return Convert.ToInt32(File.ReadAllText(path).Split(';')[2]);
         }
     }
 }

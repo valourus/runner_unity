@@ -10,7 +10,7 @@ public class FadeOut : MonoBehaviour {
     
     private void Update() {
         group.alpha = Mathf.Lerp(group.alpha, 0, Time.deltaTime * 7);
-        if(group.alpha < 0.01) 
+        if(group.alpha < 0.001) 
             Destroy(this);
     }
 }

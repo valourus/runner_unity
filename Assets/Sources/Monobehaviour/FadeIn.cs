@@ -12,7 +12,7 @@ public class FadeIn : MonoBehaviour {
     
     private void Update() {
         group.alpha = Mathf.Lerp(group.alpha, 1, Time.deltaTime * 7);
-        if(group.alpha < 0.01) 
+        if(group.alpha > 0.9) 
             Destroy(this);
     }
 }

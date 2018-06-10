@@ -362,7 +362,7 @@ namespace Lean.Touch
 
 			if (wheelSensitivity != 0.0f)
 			{
-				var scroll = UnityEngine.Input.mouseScrollDelta.y;
+				var scroll = Input.mouseScrollDelta.y;
 
 				if (scroll > 0.0f)
 				{
@@ -409,7 +409,7 @@ namespace Lean.Touch
 
 			if (wheelSensitivity != 0.0f)
 			{
-				var scroll = UnityEngine.Input.mouseScrollDelta.y;
+				var scroll = Input.mouseScrollDelta.y;
 
 				if (scroll > 0.0f)
 				{

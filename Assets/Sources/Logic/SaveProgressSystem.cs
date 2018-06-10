@@ -11,7 +11,7 @@ namespace Sources.Logic {
         }
         
         public void TearDown() {
-            VUtils.getInstance().save(game.experience.level, game.experience.xp, 10);
+            VUtils.getInstance().save(game.experience.level, game.experience.xp, game.score.highscore);
         }
     }
 }

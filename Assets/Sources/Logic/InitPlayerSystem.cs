@@ -16,6 +16,8 @@ namespace Sources.Logic {
         public void Initialize() {
             var player = context.game.CreateEntity();
             GameObject go = RootSystem.cfg.player;
+            go.GetComponent<Animator>().Play("idle");
+            go.Link(player, context.game);
             player.AddView(go);
             player.isDead = false;
             player.AddSpeed(0);
