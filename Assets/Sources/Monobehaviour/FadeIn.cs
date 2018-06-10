@@ -8,6 +8,9 @@ public class FadeIn : MonoBehaviour {
 
     private void Awake() {
         group = GetComponent<CanvasGroup>();
+        FadeOut other = GetComponent<FadeOut>();
+        if (other != null)
+            Destroy(other);
     }
     
     private void Update() {

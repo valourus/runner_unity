@@ -6,11 +6,14 @@ public class FadeOut : MonoBehaviour {
 
     private void Awake() {
         group = GetComponent<CanvasGroup>();
+        FadeIn other = GetComponent<FadeIn>();
+        if (other != null)
+            Destroy(other);
     }
     
     private void Update() {
         group.alpha = Mathf.Lerp(group.alpha, 0, Time.deltaTime * 7);
-        if(group.alpha < 0.001) 
+        if(group.alpha < 0.0001) 
             Destroy(this);
     }
 }

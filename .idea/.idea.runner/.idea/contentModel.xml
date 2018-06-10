@@ -16,6 +16,11 @@
         <e p="Entitas" t="Include">
           <e p="Compile.cs" t="Include" />
         </e>
+        <e p="Fonts" t="Include">
+          <e p="Android" t="Include">
+            <e p="AndroidManifest.xml" t="Include" />
+          </e>
+        </e>
         <e p="LeanTouch" t="Include">
           <e p="Editor" t="Include">
             <e p="LeanSelectable_Editor.cs" t="Include" />
@@ -75,9 +80,6 @@
           <e p="Destroyer.cs" t="Include" />
         </e>
         <e p="Plugins" t="Include">
-          <e p="Android" t="Include">
-            <e p="AndroidManifest.xml" t="Include" />
-          </e>
           <e p="Standalone Multi-Touch Input Module" t="Include">
             <e p="README.txt" t="Include" />
             <e p="StandaloneMultiTouchInputModule.cs" t="Include" />

@@ -20,6 +20,7 @@ public sealed class Config : MonoBehaviour {
     public GameObject jumpCover;
     public GameObject jumpIcon;
     public GameObject slowMotionIcon;
+    public GameObject levelBar;
     public GameObject slowMotionCover;
     public float startSpeed;
     public bool isPaused;

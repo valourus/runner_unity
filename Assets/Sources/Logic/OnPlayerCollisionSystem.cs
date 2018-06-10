@@ -34,6 +34,7 @@ namespace Sources.Logic {
                 game.isDead = true;
                 LevelLogic.addXP(game.score.currScore, game.experience);
                 RootSystem.cfg.gameOverMenu.AddComponent<FadeIn>();
+                RootSystem.cfg.levelBar.AddComponent<FadeIn>();
                 if(game.score.currScore > game.score.highscore) {
                     game.score.highscore = game.score.currScore;
                 }

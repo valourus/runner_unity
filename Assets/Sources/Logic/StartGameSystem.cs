@@ -28,6 +28,7 @@ namespace Sources.Logic {
 
             RootSystem.cfg.mainmenu.GetComponent<CanvasGroup>().blocksRaycasts = false;
             RootSystem.cfg.mainmenu.AddComponent<FadeOut>();
+            RootSystem.cfg.levelBar.AddComponent<FadeOut>();
             RootSystem.cfg.gamemenu.AddComponent<FadeIn>();  
             entities[0].Destroy();
         }

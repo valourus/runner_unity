@@ -40,6 +40,7 @@ namespace Sources.Logic {
                             playerEntity.RemoveSlowMotionCoolDown();
                         game.isDead = false;
                         RootSystem.cfg.gameOverMenu.AddComponent<FadeOut>();
+                        RootSystem.cfg.levelBar.AddComponent<FadeOut>();
                         break;
                     case RestartFase.FASE2:
                         game.speed.value = 1;
