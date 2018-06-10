@@ -1,29 +1,9 @@
 # runner
 
-#TODO
+this a simple android runnning game made with unity using entitas(https://github.com/sschmid/Entitas-CSharp)
 
-#features
-## koen
- - oneindig rennen
- - ~~link en rachts bewegen~~
- - abelities (power)
-    - ~~slomo~~
-    - *jump
- - steets sneller bewegen
- - exp points
- 	* skins unlock
-	* abelities unlock
- * ~~score~~
- * high score
- * new level (C)
- * ~~vallen~~
- * opstaan(play again).
+## how to play
 
-## sem 
- - thema unknow planet (verderuitwerken)
- - hooftpersoon 
- - obstacles maken
- - UI design
-
-
-
+touch left on the screen to move left.
+touch right on the screen to move right.
+swipe up to jump.
